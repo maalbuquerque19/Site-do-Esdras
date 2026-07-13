@@ -2,10 +2,14 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   
+  # Evitar redirecionamentos para o robots.txt (evita erros de rastreamento de bots)
+  RewriteCond %{REQUEST_URI} !/robots\.txt$ [NC]
   # Redirecionar de www para não-www
   RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
   
+  # Evitar redirecionamentos para o robots.txt
+  RewriteCond %{REQUEST_URI} !/robots\.txt$ [NC]
   # Redirecionar HTTP para HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]

@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Permitir explicitamente o Google AdsBot
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# Permitir outros robôs do Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
